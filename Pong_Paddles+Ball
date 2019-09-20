@@ -64,7 +64,7 @@ void keyPressed() {
   if (padRY >= 60) {
     if (key == CODED) {
       if (keyCode == UP) {
-        padRY += -5;
+        padRY += -12;
       }
     }
   }
@@ -72,20 +72,20 @@ void keyPressed() {
   if (padRY <= 600-60) {
     if (key == CODED) {
       if (keyCode == DOWN) {
-        padRY += 5;
+        padRY += 12;
       }
     }
   }
   
     if (padLY >= 60) {
     if (key == 119) {
-        padLY += -5;
+        padLY += -12;
       }
   }
 
   if (padLY <= 600-60) {
     if (key == 115) {
-        padLY += 5;
+        padLY += 12;
       }
   }
 }
