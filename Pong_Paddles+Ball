@@ -1,0 +1,91 @@
+float x, y, dx, dy, diam, rad;
+
+int padH, padW;
+int padLY, padRY;
+
+void setup () {
+  size(800, 600);
+  
+  x = 400;
+  y = 300;
+  dx = 3;
+  dy = 5;
+  diam = 52;
+  rad = diam/2;
+  
+  padH = 120;
+  padW = 20;
+  padLY = 300;
+  padRY = padLY;
+  
+}
+
+void draw () {
+  frameRate(120);
+  background(14, 48, 6);
+  
+  // Her starter Ball
+  ellipseMode(CENTER);
+  ellipse(x, y, diam, diam);
+  
+  x += dx;
+  y += dy;
+  
+  if (x == 149) {
+    if (149<y && y<349)
+      dx = -dx;
+  }
+  if (y == 150) {
+    if (150<x && x<350)
+      dy = -dy;
+  }
+   if (x == 350) {
+    if (150<y && y<350)
+      dx = -dx;
+  }
+  if (y == 350) {
+    if (150<x && x<350)
+      dy = -dy;
+  }
+  // OVERSKRIFT
+  // Her starter paddles
+  fill(255);
+  rectMode(CENTER);
+  noStroke();
+
+  //Venstre paddle
+  rect(25, padLY, padW, padH);
+
+  //Hoejre paddle
+  rect(800-25, padRY, padW, padH);
+}
+
+void keyPressed() {
+  if (padRY >= 60) {
+    if (key == CODED) {
+      if (keyCode == UP) {
+        padRY += -5;
+      }
+    }
+  }
+
+  if (padRY <= 600-60) {
+    if (key == CODED) {
+      if (keyCode == DOWN) {
+        padRY += 5;
+      }
+    }
+  }
+  
+    if (padLY >= 60) {
+    if (key == 119) {
+        padLY += -5;
+      }
+  }
+
+  if (padLY <= 600-60) {
+    if (key == 115) {
+        padLY += 5;
+      }
+  }
+}
